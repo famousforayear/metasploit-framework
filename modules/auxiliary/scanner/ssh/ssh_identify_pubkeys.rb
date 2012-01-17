@@ -298,7 +298,7 @@ class Metasploit3 < Msf::Auxiliary
 		ktype = "dsa" if ktype == "dss" # Seems sensible to recast it
 		ltype = "host.unix.ssh.#{user}_#{ktype}_public"
 		# Assignment and comparison here, watch out!
-		if loot = Msf::DBManager::Loot.find_by_ltype_and_workspace_id(ltype,myworkspace.id)
+		if loot = Msm::Loot.find_by_ltype_and_workspace_id(ltype,myworkspace.id)
 			if loot.info.include? key_id
 				@keyfile_path = loot.path
 			end

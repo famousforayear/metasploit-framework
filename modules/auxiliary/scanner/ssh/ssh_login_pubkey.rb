@@ -277,7 +277,7 @@ class Metasploit3 < Msf::Auxiliary
 		ktype = ktype_match[1].downcase
 		ltype = "host.unix.ssh.#{user}_#{ktype}_private"
 		# Assignment and comparison here, watch out!
-		if loot = Msf::DBManager::Loot.find_by_ltype_and_workspace_id(ltype,myworkspace.id)
+		if loot = Msm::Loot.find_by_ltype_and_workspace_id(ltype,myworkspace.id)
 			if loot.info.include? key_id
 				@keyfile_path = loot.path
 			end
